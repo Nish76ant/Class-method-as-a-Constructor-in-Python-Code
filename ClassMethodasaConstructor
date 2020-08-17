@@ -1,0 +1,28 @@
+class Employee:
+
+    noOfLeaves = 8
+
+    def __init__(self,name,salary,role):
+        self.name = name
+        self.salary = salary
+        self.role = role
+
+    def printDetails(self):
+        return f'Hii Your salary is {self.salary} and your name is {self.name} and your role is this {self.role}'
+
+    #Class Methods
+
+    def change_leaves(cls,newleaves):  #Only we need class method
+        cls.noOfLeaves = newleaves
+
+
+    #Class Method as a Constructor
+    @classmethod
+    def from_dash(cls,string):
+        ps = string.split('-')
+        #print(ps)
+        return cls(ps[0], ps[1],ps[2])
+
+
+karan = Employee.from_dash("Karan-480-Student")
+print(karan.salary)
